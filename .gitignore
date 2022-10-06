@@ -4,6 +4,7 @@
 # Enable git for root files
 !/.gitignore
 !/README.md
+#!/secret.json
 
 # Enable git for root directries
 !/src/

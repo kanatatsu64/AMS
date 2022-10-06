@@ -1,0 +1,14 @@
+# Disable git for all the root directries and files
+/*
+
+# Enable git for root files
+!/.gitignore
+!/README.md
+
+# Enable git for root directries
+!/src/
+
+# Disable git for temporary files
+*.swp
+*.un~
+*.~

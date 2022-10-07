@@ -19,9 +19,12 @@ with open('secret.json') as f:
 line_bot_api = LineBotApi(cred["ChannelAccessToken"])
 handler = WebhookHandler(cred["ChannelSecret"])
 
+@app.route("/line/health", methods=['GET'])
+def health():
+    return 'OK'
 
-@app.route("/callback", methods=['POST'])
-def callback():
+@app.route("/line/webhook", methods=['POST'])
+def webhook():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
@@ -44,7 +47,3 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
-
-
-if __name__ == "__main__":
-    app.run()

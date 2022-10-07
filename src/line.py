@@ -1,4 +1,5 @@
 from flask import Flask, request, abort
+import json
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -12,12 +13,18 @@ from linebot.models import (
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+with open('secret.json') as f:
+    cred = json.load(f)["Line"]
 
+line_bot_api = LineBotApi(cred["ChannelAccessToken"])
+handler = WebhookHandler(cred["ChannelSecret"])
 
-@app.route("/callback", methods=['POST'])
-def callback():
+@app.route("/line/health", methods=['GET'])
+def health():
+    return 'OK'
+
+@app.route("/line/webhook", methods=['POST'])
+def webhook():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
@@ -40,7 +47,3 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
-
-
-if __name__ == "__main__":
-    app.run()

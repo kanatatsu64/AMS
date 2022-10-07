@@ -8,6 +8,8 @@ line-bot-sdk = "*"
 flask = "*"
 yahoo-finance-api2 = "*"
 pandas = "*"
+requests = "*"
+numpy = "*"
 
 [dev-packages]
 

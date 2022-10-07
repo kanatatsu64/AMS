@@ -7,7 +7,8 @@ Add the following json file in the root directry
 ```json
 {
     "Line": {
-        "ChannelAccessToken": "{ChannelAccessToken}"
+        "ChannelAccessToken": "{ChannelAccessToken}",
+        "ChannelSecret": "{ChannelSecret}"
     }
 }
 ```

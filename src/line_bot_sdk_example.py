@@ -17,7 +17,7 @@ with open('secret.json') as f:
     cred = json.load(f)["Line"]
 
 line_bot_api = LineBotApi(cred["ChannelAccessToken"])
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+handler = WebhookHandler(cred["ChannelSecret"])
 
 
 @app.route("/callback", methods=['POST'])

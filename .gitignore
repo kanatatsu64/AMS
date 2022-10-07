@@ -4,6 +4,8 @@
 # Enable git for root files
 !/.gitignore
 !/README.md
+!/Pipfile
+!/Pipfile.lock
 #!/secret.json
 
 # Enable git for root directries

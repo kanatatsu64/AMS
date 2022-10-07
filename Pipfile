@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 line-bot-sdk = "*"
 flask = "*"
+yahoo-finance-api2 = "*"
+pandas = "*"
 
 [dev-packages]
 
